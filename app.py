@@ -4,6 +4,9 @@ import pandas as pd
 from streamlit_pandas_profiling import st_profile_report
 # import pandas_profiling
 
+from pycaret.regression import setup as regression_setup, compare_models as regression_compare_models, pull, save_model, load_model
+from pycaret.classification import setup as classification_setup, compare_models as classification_compare_models
+
 # import plotly.express as px
 # from pycaret.regression import setup, compare_models, pull, save_model, load_model
 # from pycaret.classification import *
@@ -34,3 +37,23 @@ if choice == "Profiling":
     profile_df = df.profile_report()
     st_profile_report(profile_df)
 
+if choice == "Modelling":
+    chosen_target = st.selectbox('Choose the Target Column', df.columns)
+    task = st.radio('Select Task', ['Regression', 'Classification'])
+
+    if st.button('Run Modelling'):
+        if task == 'Regression':
+            setup_df = regression_setup(df, target=chosen_target, silent=True)
+        elif task == 'Classification':
+            setup_df = classification_setup(df, target=chosen_target, silent=True)
+        
+        st.dataframe(setup_df)
+
+        if task == 'Regression':
+            best_model = regression_compare_models()
+        elif task == 'Classification':
+            best_model = classification_compare_models()
+        
+        compare_df = pull()
+        st.dataframe(compare_df)
+        save_model(best_model, 'best_model')
