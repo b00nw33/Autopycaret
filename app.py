@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 from streamlit_pandas_profiling import st_profile_report
-# import pandas_profiling
+import pandas_profiling
 
 from pycaret.regression import setup as regression_setup, compare_models as regression_compare_models, pull, save_model, load_model
 from pycaret.classification import setup as classification_setup, compare_models as classification_compare_models
