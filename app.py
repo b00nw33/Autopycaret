@@ -1,9 +1,9 @@
 import streamlit as st
+import pandas as pd
 # import plotly.express as px
 #from pycaret.regression import setup, compare_models, pull, save_model, load_model
 # import pandas_profiling
 # from pycaret.classification import *
-import pandas as pd
 # from streamlit_pandas_profiling import st_profile_report
 import os
 
@@ -17,3 +17,11 @@ with st.sidebar:
     st.title("OperationalML")
     choice = st.radio("Navigation", ["Upload","Profiling","Modelling", "Download"])
     st.info("This project application helps you build and explore your data.")
+
+if choice == "Upload":
+    st.title("Upload Your Dataset")
+    file = st.file_uploader("Upload Your Dataset")
+    if file:
+        df = pd.read_csv(file, index_col=None)
+        df.to_csv('dataset.csv', index=None)
+        st.dataframe(df)
