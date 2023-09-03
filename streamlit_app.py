@@ -14,7 +14,7 @@ else:
 
 with st.sidebar:
     st.image("https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png")
-    st.title("OperationalML")
+    st.title("Autopycaret")
     choice = st.radio("Navigation", ["Upload","Profiling","Modelling", "Download"])
     st.info("This project application helps you build and explore your data.")
 
@@ -34,8 +34,8 @@ if choice == "Profiling":
 if choice == "Modelling":
     chosen_target = st.selectbox('Choose the Target Column', df.columns)
     if chosen_target and st.button('Run Modelling'):
-        setup(df, target=chosen_target)
-        setup_df=pull()
+        setup(df, target=chosen_target, silent=True)
+        setup_df = pull()
         
         best_model = compare_models()
         compare_df = pull()
