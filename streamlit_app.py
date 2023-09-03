@@ -35,10 +35,10 @@ if choice == "Modelling":
     chosen_target = st.selectbox('Choose the Target Column', df.columns)
     if chosen_target and st.button('Run Modelling'):
         s = setup(df, target=chosen_target, train_size = 0.8, normalize = True, session_id = 123)
-        setup_df = pull()
+        # setup_df = pull()
         
         best_model = compare_models()
-        compare_df = pull()
+        # compare_df = pull()
         save_model(best_model, 'best_model')
         st.dataframe(compare_df)
 
