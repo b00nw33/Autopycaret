@@ -1,0 +1,2 @@
+pandas-profiling==3.4.0
+streamlit-pandas-profiling==0.1.3
