@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-# from streamlit_pandas_profiling import st_profile_report
-import pandas_profiling
+from streamlit_pandas_profiling import st_profile_report
+# import pandas_profiling
 
 # import plotly.express as px
 # from pycaret.regression import setup, compare_models, pull, save_model, load_model
@@ -31,6 +31,6 @@ if choice == "Upload":
 
 if choice == "Profiling":
     st.title("Exploratory Data Analysis")
-    # profile_df = df.profile_report()
-    # st_profile_report(profile_df)
+    profile_df = df.profile_report()
+    st_profile_report(profile_df)
 
