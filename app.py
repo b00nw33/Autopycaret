@@ -57,3 +57,10 @@ if choice == "Modelling":
         compare_df = pull()
         st.dataframe(compare_df)
         save_model(best_model, 'best_model')
+
+if choice == "Download":
+    if os.path.exists('best_model.pkl'):
+        with open('best_model.pkl', 'rb') as f:
+            st.download_button('Download Model', f, file_name="best_model.pkl")
+    else:
+        st.warning("No model has been saved yet. Please run modelling first.")
