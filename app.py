@@ -43,10 +43,11 @@ if choice == "Modelling":
 
     if st.button('Run Modelling'):
         if task == 'Regression':
-            setup_df = regression_setup(df, target=chosen_target)
+            regression_setup(df, target=chosen_target)
         elif task == 'Classification':
-            setup_df = classification_setup(df, target=chosen_target)
+            classification_setup(df, target=chosen_target)
         
+        setup_df = pull()
         st.dataframe(setup_df)
 
         if task == 'Regression':
