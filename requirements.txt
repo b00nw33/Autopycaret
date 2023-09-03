@@ -1,8 +1,8 @@
 streamlit
 
-plotly
-pycaret
 scikit-learn
+plotly
 
+pycaret==2.3.10
 pandas-profiling==3.4.0
 streamlit-pandas-profiling==0.1.3
