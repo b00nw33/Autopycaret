@@ -1,6 +1,5 @@
 streamlit
 pycaret
 scikit-learn
-pandas-profiling
 streamlit-pandas-profiling
-phik==0.12.2
+ydata_profiling
