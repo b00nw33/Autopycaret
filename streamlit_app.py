@@ -34,6 +34,7 @@ if choice == "Profiling":
 if choice == "Modelling":
     chosen_target = st.selectbox('Choose the Target Column', df.columns)
     if chosen_target and st.button('Run Modelling'):
+        pass
         classf = setup(data=df, target=chosen_target, train_size = 0.8, normalize = True, session_id = 123)
         # setup_df = pull()
         
@@ -44,6 +45,7 @@ if choice == "Modelling":
 
 
 if choice == "Download":
+    pass
     if os.path.exists('best_model.pkl'):
         with open('best_model.pkl', 'rb') as f:
             st.download_button('Download Model', f, file_name="best_model.pkl")
