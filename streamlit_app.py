@@ -34,7 +34,7 @@ if choice == "Profiling":
 if choice == "Modelling":
     chosen_target = st.selectbox('Choose the Target Column', df.columns)
     if chosen_target and st.button('Run Modelling'):
-        classf = setup(data=df, target=chosen_target, train_size=0.8, normalize=True, session_id=123)
+        classf = setup(data=df, target=chosen_target, verbose=False) #train_size=0.8, normalize=True, session_id=123)
         best_model = compare_models()
         compare_df = pull()
         st.dataframe(compare_df)
